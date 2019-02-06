@@ -6,7 +6,13 @@ var cors = require('cors');
 // Create instance of express for app and instantiate bodyParser and cors
 var app = module.exports = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({optionSuccessStatus: 200}));
+app.use(express.static('public')); //sets public file for static assets like css file
+
+
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+  });
 
 //GET call to return JSON that formats natural and unix date
 app.get('/dateValues/:dateVal', (req, res, next) => {
