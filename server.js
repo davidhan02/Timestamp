@@ -15,7 +15,7 @@ app.get("/", function (req, res) {
   });
 
 //GET call to return JSON that formats natural and unix date
-app.get('/dateValues/:dateVal', (req, res, next) => {
+app.get('/api/timestamp/:dateVal', (req, res, next) => {
     //Gets the request data for date
     var dateVal = req.params.dateVal;
     //Options for formatting date in natural date view
